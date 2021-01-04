@@ -2,6 +2,7 @@
   "name": "crypto-react-v1",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dann-y.github.io/crypto-viewer-react/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.2",
