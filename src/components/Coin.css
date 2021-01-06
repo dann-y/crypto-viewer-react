@@ -1,12 +1,5 @@
-/* .coin-container {
-  display: flex;
-  justify-content: center;
-} */
-
-.coin-row {
-  padding-top: 20px;
-  padding-bottom: 25px;
-  border-bottom: 1px solid #d7d7d7;
+.coin-container {
+  min-width: 340px;
 }
 
 .coin {
@@ -48,7 +41,7 @@
 }
 
 .coin-price {
-  max-width: 110px;
+  max-width: 250px;
 }
 
 .coin-volume {
