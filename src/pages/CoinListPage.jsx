@@ -43,6 +43,7 @@ const CoinListPage = () => {
       {filteredCoins.map((coin) => {
         return (
           <Link to={`/coins/${coin.id}`}>
+            {console.log(coin.id)}
             <Coin
               key={coin.id}
               name={coin.name}
