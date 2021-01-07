@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/crypto-viewer-react/static/css/main.9e531796.chunk.css",
-    "main.js": "/crypto-viewer-react/static/js/main.efd493b0.chunk.js",
-    "main.js.map": "/crypto-viewer-react/static/js/main.efd493b0.chunk.js.map",
+    "main.css": "/crypto-viewer-react/static/css/main.0fad895e.chunk.css",
+    "main.js": "/crypto-viewer-react/static/js/main.a7eedb86.chunk.js",
+    "main.js.map": "/crypto-viewer-react/static/js/main.a7eedb86.chunk.js.map",
     "runtime-main.js": "/crypto-viewer-react/static/js/runtime-main.c0b5d4d8.js",
     "runtime-main.js.map": "/crypto-viewer-react/static/js/runtime-main.c0b5d4d8.js.map",
-    "static/js/2.8477c277.chunk.js": "/crypto-viewer-react/static/js/2.8477c277.chunk.js",
-    "static/js/2.8477c277.chunk.js.map": "/crypto-viewer-react/static/js/2.8477c277.chunk.js.map",
+    "static/js/2.1aa6a773.chunk.js": "/crypto-viewer-react/static/js/2.1aa6a773.chunk.js",
+    "static/js/2.1aa6a773.chunk.js.map": "/crypto-viewer-react/static/js/2.1aa6a773.chunk.js.map",
     "index.html": "/crypto-viewer-react/index.html",
-    "static/css/main.9e531796.chunk.css.map": "/crypto-viewer-react/static/css/main.9e531796.chunk.css.map",
-    "static/js/2.8477c277.chunk.js.LICENSE.txt": "/crypto-viewer-react/static/js/2.8477c277.chunk.js.LICENSE.txt"
+    "static/css/main.0fad895e.chunk.css.map": "/crypto-viewer-react/static/css/main.0fad895e.chunk.css.map",
+    "static/js/2.1aa6a773.chunk.js.LICENSE.txt": "/crypto-viewer-react/static/js/2.1aa6a773.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c0b5d4d8.js",
-    "static/js/2.8477c277.chunk.js",
-    "static/css/main.9e531796.chunk.css",
-    "static/js/main.efd493b0.chunk.js"
+    "static/js/2.1aa6a773.chunk.js",
+    "static/css/main.0fad895e.chunk.css",
+    "static/js/main.a7eedb86.chunk.js"
   ]
 }
