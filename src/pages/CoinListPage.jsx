@@ -29,7 +29,10 @@ const CoinListPage = () => {
   return (
     <div className="coin-app">
       <div className="coin-search ">
-        <h1 className="coin-text">Search a cryptocurrency!</h1>
+        <h1 className="coin-text">
+          Search a cryptocurrency! <br /> <br />
+          Click on any coin to view chart data.
+        </h1>
         <form>
           <input
             type="text"
@@ -43,7 +46,6 @@ const CoinListPage = () => {
       {filteredCoins.map((coin) => {
         return (
           <Link to={`/coins/${coin.id}`}>
-            {console.log(coin.id)}
             <Coin
               key={coin.id}
               name={coin.name}

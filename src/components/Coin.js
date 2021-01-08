@@ -1,9 +1,8 @@
 import React from "react";
-import Chart from "chart.js";
+
 import "./Coin.css";
 
 const Coin = ({
-  key,
   image,
   name,
   symbol,

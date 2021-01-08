@@ -8,8 +8,8 @@ export const historyOptions = {
   animation: {
     duration: 1500,
   },
-  maintainAspectRatio: false,
-  responsive: false,
+  maintainAspectRatio: true,
+  responsive: true,
   scales: {
     xAxes: [{ type: "time", distribution: "linear" }],
   },

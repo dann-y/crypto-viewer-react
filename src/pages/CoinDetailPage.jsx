@@ -43,21 +43,27 @@ const CoinDetailPage = () => {
 
   const renderData = () => {
     return (
-      <div>
-        <Coin
-          key={coinData.coin && coinData.coin.id}
-          name={coinData.coin && coinData.coin.name}
-          image={coinData.coin && coinData.coin.image}
-          symbol={coinData.coin && coinData.coin.symbol}
-          volume={coinData.coin && coinData.coin.total_volume}
-          price={coinData.coin && coinData.coin.current_price}
-          priceChange={
-            coinData.coin && coinData.coin.price_change_percentage_24h
-          }
-          marketcap={coinData.coin && coinData.coin && coinData.coin.market_cap}
-        />
-        <HistoryChart data={coinData} />
-        <div>
+      <div className=" grid content-center grid-cols-3">
+        <div className="m-auto mt-5 col-span-3">
+          <Coin
+            key={coinData.coin && coinData.coin.id}
+            name={coinData.coin && coinData.coin.name}
+            image={coinData.coin && coinData.coin.image}
+            symbol={coinData.coin && coinData.coin.symbol}
+            volume={coinData.coin && coinData.coin.total_volume}
+            price={coinData.coin && coinData.coin.current_price}
+            priceChange={
+              coinData.coin && coinData.coin.price_change_percentage_24h
+            }
+            marketcap={
+              coinData.coin && coinData.coin && coinData.coin.market_cap
+            }
+          />
+        </div>
+        <div className="m-auto col-span-3 w-11/12 mt-3 lg:w-8/12">
+          <HistoryChart data={coinData} />
+        </div>
+        <div className="m-auto col-span-3 mt-16 md:mt-5 lg:mt-5">
           <button className="bg-purple-700 rounded-lg p-4">
             <Link to="/">Back</Link>
           </button>
