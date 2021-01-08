@@ -7,6 +7,8 @@ const CoinListPage = () => {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
 
+  // fetching coin data
+
   useEffect(() => {
     axios
       .get(
@@ -18,10 +20,12 @@ const CoinListPage = () => {
       .catch((error) => alert(error));
   }, []);
 
+  //setting search to user input
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
 
+  //filter coins based on changed state/user input
   const filteredCoins = coins.filter((coin) => {
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
@@ -43,6 +47,7 @@ const CoinListPage = () => {
         </form>
       </div>
 
+      {/* iterate through filtered coins */}
       {filteredCoins.map((coin) => {
         return (
           <Link to={`/coins/${coin.id}`}>

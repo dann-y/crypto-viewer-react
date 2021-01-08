@@ -8,11 +8,13 @@ const CoinDetailPage = () => {
   const { id } = useParams();
   const [coinData, setCoinData] = useState([]);
 
+  //formatting data to make it compatible with chart.js
   const formatData = (data) => {
     return data.map((el) => {
       return { t: el[0], y: el[1].toFixed(2) };
     });
   };
+
   useEffect(() => {
     const fetchData = async () => {
       const [day, week, year, coin] = await Promise.all([
