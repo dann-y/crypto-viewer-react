@@ -1,0 +1,17 @@
+@media (min-width: 768px) {
+  .history-chart {
+    max-width: 750px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .history-chart {
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 1150px) {
+  .history-chart {
+    width: 1000px;
+  }
+}

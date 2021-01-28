@@ -1,5 +1,6 @@
 .coin-container {
   min-width: 340px;
+  transition: 0.3s;
 }
 
 .coin {

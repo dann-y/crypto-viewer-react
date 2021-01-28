@@ -6,7 +6,7 @@ export const historyOptions = {
   },
 
   animation: {
-    duration: 1500,
+    duration: 500,
   },
   maintainAspectRatio: true,
   responsive: true,

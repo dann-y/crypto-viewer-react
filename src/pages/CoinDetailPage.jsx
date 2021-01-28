@@ -1,8 +1,9 @@
 import axios from "axios";
 import { React, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import Coin from "../components/Coin";
+import CoinHeader from "../components/CoinHeader";
 import HistoryChart from "../components/HistoryChart";
+import "../components/HistoryChart.css";
 
 const CoinDetailPage = () => {
   const { id } = useParams();
@@ -11,7 +12,7 @@ const CoinDetailPage = () => {
   //formatting data to make it compatible with chart.js
   const formatData = (data) => {
     return data.map((el) => {
-      return { t: el[0], y: el[1].toFixed(2) };
+      return { t: el[0], y: el[1].toFixed(10) };
     });
   };
 
@@ -46,8 +47,8 @@ const CoinDetailPage = () => {
   const renderData = () => {
     return (
       <div className=" grid content-center grid-cols-3">
-        <div className="m-auto mt-5 col-span-3">
-          <Coin
+        <div className="coin-detail m-auto mt-5 col-span-3">
+          <CoinHeader
             key={coinData.coin && coinData.coin.id}
             name={coinData.coin && coinData.coin.name}
             image={coinData.coin && coinData.coin.image}
@@ -62,14 +63,16 @@ const CoinDetailPage = () => {
             }
           />
         </div>
-        <div className="m-auto col-span-3 w-11/12 mt-3 lg:w-8/12">
+        <div className="history-chart m-auto col-span-3 w-11/12 mt-3  md: lg:w-8/12">
           <HistoryChart data={coinData} />
         </div>
-        <div className="m-auto col-span-3 mt-16 md:mt-5 lg:mt-5">
-          <button className="bg-purple-700 rounded-lg p-4">
-            <Link to="/">Back</Link>
-          </button>
-        </div>
+        <Link className="m-auto col-span-3 mt-16 md:mt-5 lg:mt-5" to="/">
+          <div>
+            <button className="bg-purple-700 rounded-lg p-4 hover:bg-black">
+              Back
+            </button>
+          </div>
+        </Link>
       </div>
     );
   };
