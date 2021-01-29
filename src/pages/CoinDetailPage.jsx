@@ -66,7 +66,8 @@ const CoinDetailPage = () => {
             }
           />
         </div>
-        <div className="history-chart rounded-lg m-auto col-span-3 w-11/12 mt-3  md: lg:w-8/12">
+        <div className="chart-div mt-2 rounded p-3 rounded-lg m-auto col-span-3 w-11/12 mt-3 ">
+          {/* <div className="history-chart rounded-lg m-auto col-span-3 w-11/12 mt-3  md: lg:w-8/12"> */}
           <HistoryChart data={coinData} />
         </div>
         <Link className="m-auto col-span-3 mt-16 md:mt-5 lg:mt-5" to="/">

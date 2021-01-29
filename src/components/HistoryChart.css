@@ -1,10 +1,26 @@
 .chart-div {
   background-color: #2d2d2d;
+  /* min-height: 250px;
+  min-width: 400px; */
+  height: 38vh;
+  width: 60vh;
+  text-align: center;
 }
 
-@media (max-width: 768px) {
-  .history-chart {
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .chart-div {
     max-width: 340px;
+    height: 50vh;
+  }
+}
+
+@media (max-width: 700px) {
+  .chart-div {
+    /* min-height: 250px;
+    min-width: 400px; */
+    height: 30vh;
+    width: 60vh;
   }
 }
 

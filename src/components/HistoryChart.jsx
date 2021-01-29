@@ -41,7 +41,7 @@ const HistoryChart = ({ data }) => {
     }
   });
   return (
-    <div className="chart-div mt-2 rounded p-3 mt-2 ">
+    <div className="">
       <div className="">
         <canvas ref={chartRef} id="myChart"></canvas>
       </div>
@@ -49,17 +49,20 @@ const HistoryChart = ({ data }) => {
         <button
           className=""
           onClick={() => setTimeFormat("24h")}
-          className="bg-black p-2"
+          className="transition duration-300 focus:outline-none focus:bg-purple-600 bg-black py-2 px-3 hover:bg-purple-600"
         >
           24h
         </button>
         <button
           onClick={() => setTimeFormat("7d")}
-          className="bg-black p-2 mx-1"
+          className="transition duration-300 outline-none bg-black py-2 px-3 mx-1 focus:outline-none focus:bg-purple-600 hover:bg-purple-600"
         >
           7d
         </button>
-        <button onClick={() => setTimeFormat("1y")} className="bg-black p-2">
+        <button
+          onClick={() => setTimeFormat("1y")}
+          className="transition duration-300 focus:outline-none focus:bg-purple-600 outline-none bg-black py-2 px-3 hover:bg-purple-600"
+        >
           1y
         </button>
       </div>
