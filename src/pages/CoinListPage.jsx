@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Coin from "../components/Coin";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
 
 const CoinListPage = () => {
   const [coins, setCoins] = useState([]);
@@ -32,11 +33,10 @@ const CoinListPage = () => {
 
   return (
     <div className="coin-app">
-      <div className="coin-search ">
-        <h1 className="coin-text">
-          Search a cryptocurrency! <br /> <br />
-          Click on any coin to view chart data.
-        </h1>
+      {/* <Header /> */}
+      <div className="coin-search">
+        <h1 className="coin-text">Search for a cryptocurrency!</h1>
+        <h4 className="subtitle">Click on any coin to view chart data.</h4>
         <form>
           <input
             type="text"

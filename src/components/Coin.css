@@ -1,6 +1,16 @@
 .coin-container {
   min-width: 340px;
   transition: 0.3s;
+  border-radius: 15px;
+  margin-bottom: 0.7rem;
+  background-color: #2d2d2d;
+}
+
+@media (min-width: 800px) {
+  .coin-container {
+    min-width: 800px;
+    transition: 0.3s;
+  }
 }
 
 .coin {

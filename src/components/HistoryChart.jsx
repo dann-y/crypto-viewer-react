@@ -41,7 +41,7 @@ const HistoryChart = ({ data }) => {
     }
   });
   return (
-    <div className="bg-gray-800 mt-2 rounded p-3 mt-2 ">
+    <div className="chart-div mt-2 rounded p-3 mt-2 ">
       <div className="">
         <canvas ref={chartRef} id="myChart"></canvas>
       </div>

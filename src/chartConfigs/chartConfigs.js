@@ -4,7 +4,11 @@ export const historyOptions = {
     hover: false,
     lineWeight: 1.5,
   },
-
+  legend: {
+    labels: {
+      fontColor: "white",
+    },
+  },
   animation: {
     duration: 500,
   },

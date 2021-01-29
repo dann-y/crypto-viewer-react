@@ -1,17 +1,15 @@
-@media (min-width: 768px) {
+.chart-div {
+  background-color: #2d2d2d;
+}
+
+@media (max-width: 768px) {
+  .history-chart {
+    max-width: 340px;
+  }
+}
+
+@media (min-width: 900px) {
   .history-chart {
     max-width: 750px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .history-chart {
-    max-width: 800px;
-  }
-}
-
-@media (min-width: 1150px) {
-  .history-chart {
-    width: 1000px;
   }
 }

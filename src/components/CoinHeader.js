@@ -11,15 +11,10 @@ const CoinHeader = ({
   priceChange,
   marketcap,
 }) => {
-  if (
-    image !== undefined &&
-    name !== undefined &&
-    symbol !== undefined &&
-    price !== undefined &&
-    volume !== undefined &&
-    priceChange !== undefined &&
-    marketcap !== undefined
-  ) {
+  //jerryrigged way to fix receiving undefined values
+  //likely that component is trying to render before api data is received
+
+  if (image && name && symbol && price && volume && priceChange && marketcap) {
     return (
       <div className="coin-container bg-gray-800 rounded-lg mx-5 m-1 ">
         <div className="grid grid-cols-2 md:grid-cols-6  gap-4 coin-row pt-8 pb-10  ">

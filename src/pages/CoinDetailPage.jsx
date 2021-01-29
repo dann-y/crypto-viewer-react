@@ -46,7 +46,10 @@ const CoinDetailPage = () => {
 
   const renderData = () => {
     return (
-      <div className=" grid content-center grid-cols-3">
+      <div className="coin-app-detail mt-20 mw- grid content-center grid-cols-3">
+        <div className="header-div">
+          <h1 className="coin-text">Cryptocurrency Searcher</h1>
+        </div>
         <div className="coin-detail m-auto mt-5 col-span-3">
           <CoinHeader
             key={coinData.coin && coinData.coin.id}
@@ -63,12 +66,12 @@ const CoinDetailPage = () => {
             }
           />
         </div>
-        <div className="history-chart m-auto col-span-3 w-11/12 mt-3  md: lg:w-8/12">
+        <div className="history-chart rounded-lg m-auto col-span-3 w-11/12 mt-3  md: lg:w-8/12">
           <HistoryChart data={coinData} />
         </div>
         <Link className="m-auto col-span-3 mt-16 md:mt-5 lg:mt-5" to="/">
           <div>
-            <button className="bg-purple-700 rounded-lg p-4 hover:bg-black">
+            <button className="transition duration-300 bg-purple-800 rounded-lg py-4 px-8 hover:bg-purple-700">
               Back
             </button>
           </div>
