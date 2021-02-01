@@ -10,6 +10,8 @@ const Coin = ({
   volume,
   priceChange,
   marketcap,
+  setWatchList,
+  watchList,
 }) => {
   // if (
   //   image !== undefined &&
@@ -20,6 +22,14 @@ const Coin = ({
   //   priceChange !== undefined &&
   //   marketcap !== undefined
   // ) {
+  const watchListHandler = (e) => {
+    if (e.defaultPrevented) return; // Exits here if event has been handled
+    e.preventDefault();
+
+    if (!watchList.includes(name)) setWatchList([...watchList, name]);
+    // setWatchList(e.target.value);
+  };
+
   return (
     <div className="coin-container mx-5 hover:bg-purple-800">
       <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-9 gap-4 coin-row pt-8 pb-10 lg:pb-1 lg:pt-6 ">
@@ -31,18 +41,18 @@ const Coin = ({
           </div>
           <p className="coin-symbol">{symbol}</p>
         </div>
-        <p className=" text-center md:col-span-1 lg:col-span-2 md: lg:pl-20 md:col-start-1 coin-price ">
-          <div className="coinvalue-title">
+        <div className=" text-center md:col-span-1 lg:col-span-2 md: lg:pl-20 md:col-start-1 coin-price ">
+          <p className="coinvalue-title">
             Price <br />
-          </div>
+          </p>
           ${parseFloat(price).toFixed(2)}
-        </p>
-        <p className=" text-center  md:col-span-2 lg:col-span-2 coin-volume">
-          <div className="coinvalue-title">
+        </div>
+        <div className=" text-center  md:col-span-2 lg:col-span-2 coin-volume">
+          <p className="coinvalue-title">
             Volume <br />
-          </div>
+          </p>
           ${volume.toLocaleString()}
-        </p>
+        </div>
         {priceChange < 0 ? (
           <div className="price-change">
             <div className="coinvalue-title">
@@ -53,19 +63,28 @@ const Coin = ({
             </p>
           </div>
         ) : (
-          <p className=" text-center md:col-span-1 lg:col-span-1 coin-percent green">
-            <div className="coinvalue-title">
+          <div className=" text-center md:col-span-1 lg:col-span-1 coin-percent green">
+            <p className="coinvalue-title">
               Price Change <br />
-            </div>
+            </p>
             {parseFloat(priceChange).toFixed(3)}%
-          </p>
-        )}
-        <p className=" text-center md:col-span-2 lg:col-span-2 coin-marketcap">
-          <div className="coinvalue-title">
-            Market Cap <br />
           </div>
+        )}
+        <div className=" text-center md:col-span-2 lg:col-span-2 coin-marketcap">
+          <p className="coinvalue-title">
+            Market Cap <br />
+          </p>
           ${marketcap.toLocaleString()}
-        </p>
+        </div>
+        <div className=" text-center md:col-span-2 lg:col-span-2 coin-marketcap">
+          <p
+            href="https://google.com"
+            onClick={watchListHandler}
+            className="hover:underline"
+          >
+            Add to Watchlist <br />
+          </p>
+        </div>
       </div>
     </div>
   );

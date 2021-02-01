@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Coin from "../components/Coin";
+import WatchListCoin from "../components/WatchListCoin";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 
 const CoinListPage = () => {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
+  const [watchList, setWatchList] = useState([]);
 
   // fetching coin data
 
@@ -60,6 +62,8 @@ const CoinListPage = () => {
               price={coin.current_price}
               priceChange={coin.price_change_percentage_24h}
               marketcap={coin.market_cap}
+              setWatchList={setWatchList}
+              watchList={watchList}
             />
           </Link>
         );
