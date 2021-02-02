@@ -4,11 +4,16 @@ import Coin from "../components/Coin";
 import WatchListCoin from "../components/WatchListCoin";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
+import watchListReducer from "../reducers/watchList";
+import { useSelector } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
+// import { addCoin } from "../actions";
 
 const CoinListPage = () => {
+  const watchList = useSelector((state) => state.watchList);
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
-  const [watchList, setWatchList] = useState([]);
+  // const [watchList, setWatchList] = useState([]);
 
   // fetching coin data
 
@@ -47,6 +52,12 @@ const CoinListPage = () => {
             onChange={handleChange}
           />
         </form>
+
+        <h1>Browse Coins</h1>
+
+        <Link to={`/watch-list`}>
+          <h1>Watch List ({watchList.length})</h1>
+        </Link>
       </div>
 
       {/* iterate through filtered coins */}
@@ -62,8 +73,6 @@ const CoinListPage = () => {
               price={coin.current_price}
               priceChange={coin.price_change_percentage_24h}
               marketcap={coin.market_cap}
-              setWatchList={setWatchList}
-              watchList={watchList}
             />
           </Link>
         );

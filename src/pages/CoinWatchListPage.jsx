@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const CoinWatchListPage = () => {
+  const watchList = useSelector((state) => state.watchList);
+
   useEffect(() => {
     axios
       .get(
@@ -23,9 +27,12 @@ const CoinWatchListPage = () => {
           <form>
             <input type="text" placeholder="Search" className="coin-input " />
           </form>
+          <Link to={`/`}>
+            <h1>Browse Coins</h1>
+          </Link>
+          <h1>Watch List ({watchList.length})</h1>
         </div>
       </div>
-      {console.log(watchList)}
     </div>
   );
 };

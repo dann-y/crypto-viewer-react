@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
 import CoinDetailPage from "./pages/CoinDetailPage";
 import CoinListPage from "./pages/CoinListPage";
+import CoinWatchListPage from "./pages/CoinWatchListPage";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         </Route>
         <Route exact path="/coins/:id">
           <CoinDetailPage />
+        </Route>
+        <Route exact path="/watch-list">
+          <CoinWatchListPage />
         </Route>
       </BrowserRouter>
     </div>

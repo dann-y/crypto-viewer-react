@@ -1,6 +1,7 @@
 import React from "react";
-
 import "./Coin.css";
+import { useSelector, useDispatch } from "react-redux";
+import { addCoin, removeCoin } from "../actions";
 
 const Coin = ({
   image,
@@ -10,24 +11,17 @@ const Coin = ({
   volume,
   priceChange,
   marketcap,
-  setWatchList,
-  watchList,
 }) => {
-  // if (
-  //   image !== undefined &&
-  //   name !== undefined &&
-  //   symbol !== undefined &&
-  //   price !== undefined &&
-  //   volume !== undefined &&
-  //   priceChange !== undefined &&
-  //   marketcap !== undefined
-  // ) {
+  const watchList = useSelector((state) => state.watchList);
+  const dispatch = useDispatch();
+
   const watchListHandler = (e) => {
     if (e.defaultPrevented) return; // Exits here if event has been handled
     e.preventDefault();
 
-    if (!watchList.includes(name)) setWatchList([...watchList, name]);
-    // setWatchList(e.target.value);
+    if (!watchList.includes(name)) dispatch(addCoin(name));
+
+    if (watchList.includes(name)) dispatch(removeCoin(name));
   };
 
   return (
@@ -77,13 +71,15 @@ const Coin = ({
           ${marketcap.toLocaleString()}
         </div>
         <div className=" text-center md:col-span-2 lg:col-span-2 coin-marketcap">
-          <p
-            href="https://google.com"
-            onClick={watchListHandler}
-            className="hover:underline"
-          >
-            Add to Watchlist <br />
-          </p>
+          {!watchList.includes(name) ? (
+            <p onClick={watchListHandler} className="hover:underline">
+              Add to Watch List <br />
+            </p>
+          ) : (
+            <p onClick={watchListHandler} className="hover:underline">
+              Remove from Watch List <br />
+            </p>
+          )}
         </div>
       </div>
     </div>
