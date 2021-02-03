@@ -49,7 +49,7 @@ const CoinWatchListPage = () => {
             <input type="text" placeholder="Search" className="coin-input " />
           </form>
 
-          <div className="page-tab-div grid grid-cols-2 pt-10">
+          <div className="page-tab-div grid grid-cols-2 pt-6">
             <Link to={`/`}>
               <h1 className="page-tab">Cryptocurrency Catalog</h1>
             </Link>
@@ -84,7 +84,7 @@ const CoinWatchListPage = () => {
             <input type="text" placeholder="Search" className="coin-input " />
           </form>
 
-          <div className="page-tab-div grid grid-cols-2 pt-10">
+          <div className="page-tab-div grid grid-cols-2 pt-6">
             <Link to={`/`}>
               <h1 className="page-tab">Cryptocurrency Catalog</h1>
             </Link>
@@ -120,7 +120,7 @@ const CoinWatchListPage = () => {
                 onChange={handleChange}
               />
             </form>
-            <div className="page-tab-div grid grid-cols-2 pt-10">
+            <div className="page-tab-div grid grid-cols-2 pt-6">
               <Link to={`/`}>
                 <h1 className="page-tab">Cryptocurrency Catalog</h1>
               </Link>

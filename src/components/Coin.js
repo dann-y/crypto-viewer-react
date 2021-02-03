@@ -51,7 +51,8 @@ const Coin = ({
         {priceChange < 0 ? (
           <div className="price-change">
             <div className="coinvalue-title">
-              Price Change <br />
+              Price Change 24h
+              <br />
             </div>
             <p className=" text-center lg:col-span-1 coin-percent red">
               {parseFloat(priceChange).toFixed(3)}%
@@ -60,7 +61,8 @@ const Coin = ({
         ) : (
           <div className=" text-center md:col-span-1 lg:col-span-1 coin-percent green">
             <p className="coinvalue-title">
-              Price Change <br />
+              Price Change 24h
+              <br />
             </p>
             {parseFloat(priceChange).toFixed(3)}%
           </div>

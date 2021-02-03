@@ -48,7 +48,7 @@ const CoinDetailPage = () => {
     return (
       <div className="coin-app-detail mt-20 mw- grid content-center grid-cols-3">
         <div className="header-div">
-          <h1 className="coin-text">Cryptocurrency Searcher</h1>
+          <h1 className="coin-text">Cryptocurrency Data</h1>
         </div>
         <div className="coin-detail m-auto mt-5 col-span-3">
           <CoinHeader
