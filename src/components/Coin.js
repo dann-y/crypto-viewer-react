@@ -19,9 +19,11 @@ const Coin = ({
     if (e.defaultPrevented) return; // Exits here if event has been handled
     e.preventDefault();
 
-    if (!watchList.includes(name)) dispatch(addCoin(name));
+    if (!watchList.includes(name.toLowerCase()))
+      dispatch(addCoin(name.toLowerCase()));
 
-    if (watchList.includes(name)) dispatch(removeCoin(name));
+    if (watchList.includes(name.toLowerCase()))
+      dispatch(removeCoin(name.toLowerCase()));
   };
 
   return (
@@ -71,7 +73,7 @@ const Coin = ({
           ${marketcap.toLocaleString()}
         </div>
         <div className=" text-center md:col-span-2 lg:col-span-2 coin-marketcap">
-          {!watchList.includes(name) ? (
+          {!watchList.includes(name.toLowerCase()) ? (
             <p onClick={watchListHandler} className="hover:underline">
               Add to Watch List <br />
             </p>
