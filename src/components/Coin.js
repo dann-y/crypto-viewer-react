@@ -26,8 +26,8 @@ const Coin = ({
   };
 
   return (
-    <div className="coin-container mx-5 hover:bg-purple-800">
-      <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-9 gap-4 coin-row pt-8 pb-10 lg:pb-1 lg:pt-6 ">
+    <div className="coin-container mb-5 md:mb-4 lg:mb-3 hover:bg-purple-800">
+      <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-9  gap-4 lg:gap-x-4 lg:gap-y-0 coin-row pt-4 pb-10 lg:pb-1 lg:pt-6 ">
         <div className=" p-4 text-center col-span-2 pl-14 md:pl-0 lg:pl-14 lg:col-span-2 md:col-start-3 md:mb-5 coin">
           <img src={image} alt="crypto" />
 
@@ -71,13 +71,13 @@ const Coin = ({
           </p>
           ${marketcap.toLocaleString()}
         </div>
-        <div className=" text-center md:col-span-2 lg:col-span-2 lg:col-start-8">
+        <div className="text-center mt-6 lg:pb-2 lg:mt-0 col-span-2 col-start-1  md:col-start-3 lg:col-start-8">
           {!watchList.includes(id) ? (
-            <p onClick={watchListHandler} className=" hover:underline">
+            <p onClick={watchListHandler} className=" hover:underline green">
               Add to Watch List <br />
             </p>
           ) : (
-            <p onClick={watchListHandler} className="hover:underline">
+            <p onClick={watchListHandler} className="hover:underline red">
               Remove from Watch List <br />
             </p>
           )}

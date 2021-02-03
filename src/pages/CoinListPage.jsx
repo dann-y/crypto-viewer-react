@@ -13,6 +13,7 @@ const CoinListPage = () => {
   const watchList = useSelector((state) => state.watchList);
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
+  const [isLoading, setLoading] = useState(true);
   // const [watchList, setWatchList] = useState([]);
 
   // fetching coin data
@@ -24,6 +25,7 @@ const CoinListPage = () => {
       )
       .then((res) => {
         setCoins(res.data);
+        setLoading(false);
       })
       .catch((error) => alert(error));
   }, []);
@@ -37,6 +39,30 @@ const CoinListPage = () => {
   const filteredCoins = coins.filter((coin) => {
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
+
+  if (isLoading) {
+    return (
+      <div className="coin-app">
+        {/* <Header /> */}
+        <div className="coin-search">
+          <h1 className="coin-text">Search for a cryptocurrency!</h1>
+          <h4 className="subtitle">Click on any coin to view chart data.</h4>
+          <form>
+            <input type="text" placeholder="Search" className="coin-input " />
+          </form>
+
+          <div className="page-tab-div grid grid-cols-2 pt-10">
+            <Link to={`/`}>
+              <h1 className="page-tab-active">Cryptocurrency Catalog</h1>
+            </Link>
+
+            <h1 className="page-tab">Watch List ({watchList.length})</h1>
+          </div>
+        </div>
+        <div>Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="coin-app">
@@ -53,11 +79,13 @@ const CoinListPage = () => {
           />
         </form>
 
-        <h1>Browse Coins</h1>
+        <div className="page-tab-div grid grid-cols-2 pt-10">
+          <h1 className="page-tab-active">Cryptocurrency Catalog</h1>
 
-        <Link to={`/watch-list`}>
-          <h1>Watch List ({watchList.length})</h1>
-        </Link>
+          <Link to={`/watch-list`}>
+            <h1 className="page-tab">Watch List ({watchList.length})</h1>
+          </Link>
+        </div>
       </div>
 
       {/* iterate through filtered coins */}

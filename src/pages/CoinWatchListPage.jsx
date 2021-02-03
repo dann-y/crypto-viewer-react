@@ -38,9 +38,29 @@ const CoinWatchListPage = () => {
     });
   }, [watchList]);
 
-  // if (isLoading) {
-  //   return <div> Loading... </div>;
-  // }
+  if (isLoading) {
+    return (
+      <div className="coin-app">
+        {/* <Header /> */}
+        <div className="coin-search">
+          <h1 className="coin-text">Search for a cryptocurrency!</h1>
+          <h4 className="subtitle">Click on any coin to view chart data.</h4>
+          <form>
+            <input type="text" placeholder="Search" className="coin-input " />
+          </form>
+
+          <div className="page-tab-div grid grid-cols-2 pt-10">
+            <Link to={`/`}>
+              <h1 className="page-tab">Cryptocurrency Catalog</h1>
+            </Link>
+
+            <h1 className="page-tab-active">Watch List ({watchList.length})</h1>
+          </div>
+        </div>
+        <div>Loading...</div>
+      </div>
+    );
+  }
 
   //setting search to user input
   const handleChange = (e) => {
@@ -63,15 +83,21 @@ const CoinWatchListPage = () => {
           <form>
             <input type="text" placeholder="Search" className="coin-input " />
           </form>
-          <Link to={`/`}>
-            <h1>Browse Coins</h1>
-          </Link>
-          <h1>Watch List ({watchList.length})</h1>
 
-          <div>
-            {" "}
-            Your Watch List is empty! You can browse the cryptocurrency list
-            here.
+          <div className="page-tab-div grid grid-cols-2 pt-10">
+            <Link to={`/`}>
+              <h1 className="page-tab">Cryptocurrency Catalog</h1>
+            </Link>
+
+            <h1 className="page-tab-active">Watch List ({watchList.length})</h1>
+          </div>
+
+          <div className="watchlist-empty-text">
+            Your Watch List is empty! <br /> You can browse the cryptocurrency
+            list&nbsp;
+            <Link to={`/`}>
+              <u>here</u>.
+            </Link>
           </div>
         </div>
       </div>
@@ -94,10 +120,15 @@ const CoinWatchListPage = () => {
                 onChange={handleChange}
               />
             </form>
-            <Link to={`/`}>
-              <h1>Browse Coins</h1>
-            </Link>
-            <h1>Watch List ({watchList.length})</h1>
+            <div className="page-tab-div grid grid-cols-2 pt-10">
+              <Link to={`/`}>
+                <h1 className="page-tab">Cryptocurrency Catalog</h1>
+              </Link>
+
+              <h1 className="page-tab-active">
+                Watch List ({watchList.length})
+              </h1>
+            </div>
           </div>
 
           {/* iterate through filtered coins */}

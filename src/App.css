@@ -43,7 +43,7 @@ body {
 }
 
 .coin-search {
-  margin-bottom: 10vh;
+  margin-bottom: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,12 +54,33 @@ body {
   .coin-search {
     margin-bottom: 5vh;
   }
+
+  .page-tab-div {
+    margin-top: 1vh;
+  }
 }
 
 .coin-text {
   margin-bottom: 20px;
   text-align: center;
   font-size: 1.5rem;
+}
+
+.watchlist-empty-text {
+  margin-top: 10vh;
+}
+
+.page-tab-div {
+  margin-top: 3vh;
+}
+
+.page-tab {
+  font-size: 1rem;
+  color: gray;
+}
+.page-tab-active {
+  font-size: 1rem;
+  font-weight: 800;
 }
 
 .coin-input {

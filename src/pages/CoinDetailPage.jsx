@@ -72,7 +72,7 @@ const CoinDetailPage = () => {
         </div>
         <Link className="m-auto col-span-3 mt-16 md:mt-5 lg:mt-5" to="/">
           <div>
-            <button className="transition duration-300 bg-purple-800 rounded-lg py-4 px-8 hover:bg-purple-700">
+            <button className="transition duration-300 bg-purple-800 rounded-lg py-4 px-8 hover:bg-purple-700 focus:outline-none ">
               Back
             </button>
           </div>
