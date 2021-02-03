@@ -8,8 +8,8 @@ const CoinWatchListPage = () => {
   let promises = [];
   let coinData = [];
   const [isLoading, setLoading] = useState(true);
-  const [coinsData, setCoinsData] = useState([]);
   const [search, setSearch] = useState("");
+  const [coinsData, setCoinsData] = useState([]);
   const watchList = useSelector((state) => state.watchList);
 
   useEffect(() => {
@@ -36,11 +36,11 @@ const CoinWatchListPage = () => {
 
       setLoading(false);
     });
-  }, []);
+  }, [watchList]);
 
-  if (isLoading) {
-    return <div> Loading... </div>;
-  }
+  // if (isLoading) {
+  //   return <div> Loading... </div>;
+  // }
 
   //setting search to user input
   const handleChange = (e) => {
@@ -48,54 +48,79 @@ const CoinWatchListPage = () => {
   };
 
   //filter coins based on changed state/user input
+
   const filteredCoins = coinsData.filter((coin) => {
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
 
   if (watchList.length === 0) {
-    return <div> Your Watch List is empty! </div>;
-  }
-  return (
-    <div>
+    return (
       <div className="coin-app">
         {/* <Header /> */}
         <div className="coin-search">
           <h1 className="coin-text">Search for a cryptocurrency!</h1>
           <h4 className="subtitle">Click on any coin to view chart data.</h4>
           <form>
-            <input
-              type="text"
-              placeholder="Search"
-              className="coin-input "
-              onChange={handleChange}
-            />
+            <input type="text" placeholder="Search" className="coin-input " />
           </form>
           <Link to={`/`}>
             <h1>Browse Coins</h1>
           </Link>
           <h1>Watch List ({watchList.length})</h1>
-        </div>
 
-        {/* iterate through filtered coins */}
-        {filteredCoins.map((coin) => {
-          return (
-            <Link to={`/coins/${coin.id}`}>
-              <Coin
-                key={coin.id}
-                name={coin.name}
-                image={coin.image}
-                symbol={coin.symbol}
-                volume={coin.total_volume}
-                price={coin.current_price}
-                priceChange={coin.price_change_percentage_24h}
-                marketcap={coin.market_cap}
-              />
-            </Link>
-          );
-        })}
+          <div>
+            {" "}
+            Your Watch List is empty! You can browse the cryptocurrency list
+            here.
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  if (coinData) {
+    return (
+      <div>
+        <div className="coin-app">
+          {/* <Header /> */}
+          <div className="coin-search">
+            <h1 className="coin-text">Search for a cryptocurrency!</h1>
+            <h4 className="subtitle">Click on any coin to view chart data.</h4>
+            <form>
+              <input
+                type="text"
+                placeholder="Search"
+                className="coin-input "
+                onChange={handleChange}
+              />
+            </form>
+            <Link to={`/`}>
+              <h1>Browse Coins</h1>
+            </Link>
+            <h1>Watch List ({watchList.length})</h1>
+          </div>
+
+          {/* iterate through filtered coins */}
+          {filteredCoins.map((coin) => {
+            return (
+              <Link to={`/coins/${coin.id}`}>
+                <Coin
+                  id={coin.id}
+                  name={coin.name}
+                  image={coin.image}
+                  symbol={coin.symbol}
+                  volume={coin.total_volume}
+                  price={coin.current_price}
+                  priceChange={coin.price_change_percentage_24h}
+                  marketcap={coin.market_cap}
+                />
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
 };
 
 export default CoinWatchListPage;

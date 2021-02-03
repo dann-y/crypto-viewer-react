@@ -59,13 +59,13 @@ const CoinListPage = () => {
           <h1>Watch List ({watchList.length})</h1>
         </Link>
       </div>
-      {console.log(filteredCoins)}
+
       {/* iterate through filtered coins */}
       {filteredCoins.map((coin) => {
         return (
           <Link to={`/coins/${coin.id}`}>
             <Coin
-              key={coin.id}
+              id={coin.id}
               name={coin.name}
               image={coin.image}
               symbol={coin.symbol}
