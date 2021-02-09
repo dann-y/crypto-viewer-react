@@ -8,6 +8,7 @@ import "../components/HistoryChart.css";
 const CoinDetailPage = () => {
   const { id } = useParams();
   const [coinData, setCoinData] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   //formatting data to make it compatible with chart.js
   const formatData = (data) => {

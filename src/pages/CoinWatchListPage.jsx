@@ -81,7 +81,14 @@ const CoinWatchListPage = () => {
           <h1 className="coin-text">Search for a cryptocurrency!</h1>
           <h4 className="subtitle">Click on any coin to view chart data.</h4>
           <form>
-            <input type="text" placeholder="Search" className="coin-input " />
+            <input
+              type="text"
+              placeholder="Search"
+              className="coin-input"
+              onKeyPress={(e) => {
+                e.key === "Enter" && e.preventDefault();
+              }}
+            />
           </form>
 
           <div className="page-tab-div grid grid-cols-2 pt-6">
@@ -118,6 +125,9 @@ const CoinWatchListPage = () => {
                 placeholder="Search"
                 className="coin-input "
                 onChange={handleChange}
+                onKeyPress={(e) => {
+                  e.key === "Enter" && e.preventDefault();
+                }}
               />
             </form>
             <div className="page-tab-div grid grid-cols-2 pt-6">

@@ -76,6 +76,9 @@ const CoinListPage = () => {
             placeholder="Search"
             className="coin-input "
             onChange={handleChange}
+            onKeyPress={(e) => {
+              e.key === "Enter" && e.preventDefault();
+            }}
           />
         </form>
 
