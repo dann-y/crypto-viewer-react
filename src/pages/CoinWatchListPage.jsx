@@ -20,10 +20,6 @@ const CoinWatchListPage = () => {
             .get(
               `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${watchList[i]}`
             )
-            // .then((res) => {
-            //   coinData.push(res.data[0]);
-            //   // setCoinsData([...coinsData, res.data[0]]);
-            // })
             .catch((error) => alert(error))
         );
       }
@@ -38,43 +34,18 @@ const CoinWatchListPage = () => {
     });
   }, [watchList]);
 
-  if (isLoading) {
-    return (
-      <div className="coin-app">
-        {/* <Header /> */}
-        <div className="coin-search">
-          <h1 className="coin-text">Search for a cryptocurrency!</h1>
-          <h4 className="subtitle">Click on any coin to view chart data.</h4>
-          <form>
-            <input type="text" placeholder="Search" className="coin-input " />
-          </form>
-
-          <div className="page-tab-div grid grid-cols-2 pt-6">
-            <Link to={`/`}>
-              <h1 className="page-tab">Cryptocurrency Catalog</h1>
-            </Link>
-
-            <h1 className="page-tab-active">Watch List ({watchList.length})</h1>
-          </div>
-        </div>
-        <div>Loading...</div>
-      </div>
-    );
-  }
-
   //setting search to user input
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
 
   //filter coins based on changed state/user input
-
   const filteredCoins = coinsData.filter((coin) => {
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
 
-  if (watchList.length === 0) {
-    return (
+  return (
+    <div>
       <div className="coin-app">
         {/* <Header /> */}
         <div className="coin-search">
@@ -84,13 +55,13 @@ const CoinWatchListPage = () => {
             <input
               type="text"
               placeholder="Search"
-              className="coin-input"
+              className="coin-input "
+              onChange={handleChange}
               onKeyPress={(e) => {
                 e.key === "Enter" && e.preventDefault();
               }}
             />
           </form>
-
           <div className="page-tab-div grid grid-cols-2 pt-6">
             <Link to={`/`}>
               <h1 className="page-tab">Cryptocurrency Catalog</h1>
@@ -98,70 +69,42 @@ const CoinWatchListPage = () => {
 
             <h1 className="page-tab-active">Watch List ({watchList.length})</h1>
           </div>
-
-          <div className="watchlist-empty-text">
-            Your Watch List is empty! <br /> You can browse the cryptocurrency
-            list&nbsp;
-            <Link to={`/`}>
-              <u>here</u>.
-            </Link>
-          </div>
         </div>
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <>
+            {watchList.length === 0 && (
+              <div className="watchlist-empty-text">
+                Your Watch List is empty! <br /> You can browse the
+                cryptocurrency list&nbsp;
+                <Link to={`/`}>
+                  <u>here</u>.
+                </Link>
+              </div>
+            )}
+            {coinData &&
+              filteredCoins.map((coin) => {
+                return (
+                  <Link to={`/coins/${coin.id}`}>
+                    <Coin
+                      id={coin.id}
+                      name={coin.name}
+                      image={coin.image}
+                      symbol={coin.symbol}
+                      volume={coin.total_volume}
+                      price={coin.current_price}
+                      priceChange={coin.price_change_percentage_24h}
+                      marketcap={coin.market_cap}
+                    />
+                  </Link>
+                );
+              })}
+          </>
+        )}
       </div>
-    );
-  }
-
-  if (coinData) {
-    return (
-      <div>
-        <div className="coin-app">
-          {/* <Header /> */}
-          <div className="coin-search">
-            <h1 className="coin-text">Search for a cryptocurrency!</h1>
-            <h4 className="subtitle">Click on any coin to view chart data.</h4>
-            <form>
-              <input
-                type="text"
-                placeholder="Search"
-                className="coin-input "
-                onChange={handleChange}
-                onKeyPress={(e) => {
-                  e.key === "Enter" && e.preventDefault();
-                }}
-              />
-            </form>
-            <div className="page-tab-div grid grid-cols-2 pt-6">
-              <Link to={`/`}>
-                <h1 className="page-tab">Cryptocurrency Catalog</h1>
-              </Link>
-
-              <h1 className="page-tab-active">
-                Watch List ({watchList.length})
-              </h1>
-            </div>
-          </div>
-
-          {/* iterate through filtered coins */}
-          {filteredCoins.map((coin) => {
-            return (
-              <Link to={`/coins/${coin.id}`}>
-                <Coin
-                  id={coin.id}
-                  name={coin.name}
-                  image={coin.image}
-                  symbol={coin.symbol}
-                  volume={coin.total_volume}
-                  price={coin.current_price}
-                  priceChange={coin.price_change_percentage_24h}
-                  marketcap={coin.market_cap}
-                />
-              </Link>
-            );
-          })}
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default CoinWatchListPage;

@@ -26,8 +26,8 @@ const Coin = ({
   };
 
   return (
-    <div className="coin-container mb-5 md:mb-4 lg:mb-3 hover:bg-purple-800">
-      <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-9  gap-4 lg:gap-x-4 lg:gap-y-0 coin-row pt-4 pb-10 lg:pb-1 lg:pt-6 ">
+    <div className="coin-container mb-5 md:mb-4 lg:mb-3 hover:bg-purple-800 md:mx-6">
+      <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-9 gap-4 gap-x-4 lg:gap-y-0 coin-row pt-4 pb-10 lg:pb-1 lg:pt-6">
         <div className=" p-4 text-center col-span-2 pl-14 md:pl-0 lg:pl-14 lg:col-span-2 md:col-start-3 md:mb-5 coin">
           <img src={image} alt="crypto" />
 
@@ -36,7 +36,7 @@ const Coin = ({
           </div>
           <p className="coin-symbol">{symbol}</p>
         </div>
-        <div className=" text-center md:col-span-1 lg:col-span-2 md: lg:pl-20 md:col-start-1 coin-price ">
+        <div className=" text-center md:ml-6 md:col-span-1 lg:col-span-2 lg:pl-20 md:col-start-1 coin-price ">
           <p className="coinvalue-title">
             Price <br />
           </p>

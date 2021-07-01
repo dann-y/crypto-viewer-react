@@ -1,6 +1,5 @@
 import React from "react";
-
-import "./Coin.css";
+import "./CoinHeader.css";
 
 const CoinHeader = ({
   image,

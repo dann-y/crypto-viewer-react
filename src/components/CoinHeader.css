@@ -7,9 +7,9 @@
 }
 
 @media (min-width: 800px) {
-  .coin-container {
-    min-width: 800px;
-    max-width: 1100px;
+  .coin-app-detail .coin-container {
+    /* min-width: 800px; */
+    max-width: 750px;
     transition: 0.3s;
   }
 }

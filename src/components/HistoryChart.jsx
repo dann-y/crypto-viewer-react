@@ -41,8 +41,8 @@ const HistoryChart = ({ data }) => {
     }
   });
   return (
-    <div className="">
-      <div className="">
+    <div className="p-4">
+      <div className="p-4">
         <canvas ref={chartRef} id="myChart"></canvas>
       </div>
       <div className="chart-button mt-1">

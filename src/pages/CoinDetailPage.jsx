@@ -59,25 +59,23 @@ const CoinDetailPage = () => {
   }
 
   return (
-    <div className="coin-app-detail mt-20 mw- grid content-center grid-cols-3">
+    <div className="coin-app-detail mt-20 grid content-center grid-cols-3">
       <div className="header-div">
         <h1 className="coin-text">Cryptocurrency Data</h1>
       </div>
-      <div className="coin-detail m-auto mt-5 col-span-3">
-        <CoinHeader
-          key={coinData.coin && coinData.coin.id}
-          name={coinData.coin && coinData.coin.name}
-          image={coinData.coin && coinData.coin.image}
-          symbol={coinData.coin && coinData.coin.symbol}
-          volume={coinData.coin && coinData.coin.total_volume}
-          price={coinData.coin && coinData.coin.current_price}
-          priceChange={
-            coinData.coin && coinData.coin.price_change_percentage_24h
-          }
-          marketcap={coinData.coin && coinData.coin && coinData.coin.market_cap}
-        />
-      </div>
-      <div className="chart-div mt-2 rounded p-3 rounded-lg m-auto col-span-3 w-11/12 mt-3 ">
+
+      <CoinHeader
+        key={coinData.coin && coinData.coin.id}
+        name={coinData.coin && coinData.coin.name}
+        image={coinData.coin && coinData.coin.image}
+        symbol={coinData.coin && coinData.coin.symbol}
+        volume={coinData.coin && coinData.coin.total_volume}
+        price={coinData.coin && coinData.coin.current_price}
+        priceChange={coinData.coin && coinData.coin.price_change_percentage_24h}
+        marketcap={coinData.coin && coinData.coin && coinData.coin.market_cap}
+      />
+
+      <div className="chart-div p-3 rounded-lg m-auto col-span-3 w-11/12 mt-3 ">
         {/* <div className="history-chart rounded-lg m-auto col-span-3 w-11/12 mt-3  md: lg:w-8/12"> */}
         <HistoryChart data={coinData} />
       </div>
